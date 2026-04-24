@@ -377,7 +377,7 @@ const Index = () => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-primary-foreground shadow-gold transition-transform duration-300 hover:scale-110 animate-pulse-gold sm:h-16 sm:w-16"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-primary-foreground shadow-gold transition-transform duration-300 hover:scale-110 sm:h-16 sm:w-16"
       >
         <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
       </a>
