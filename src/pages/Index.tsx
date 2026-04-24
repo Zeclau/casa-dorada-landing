@@ -28,6 +28,7 @@ import hab17 from "@/assets/hab-17.webp";
 import hab18 from "@/assets/hab-18.webp";
 import amen20 from "@/assets/amen-20.webp";
 import amen22 from "@/assets/amen-22.webp";
+import bano19 from "@/assets/bano-19.webp";
 
 const WHATSAPP_URL =
   "https://wa.me/50500000000?text=" +
@@ -83,6 +84,13 @@ const galleryCategories = [
     images: [
       { src: hab17, alt: "Habitación con sala de estar" },
       { src: hab18, alt: "Habitación principal con piso de madera" },
+    ],
+  },
+  {
+    id: "bano",
+    label: "Baño",
+    images: [
+      { src: bano19, alt: "Baño con ducha de vidrio y mármol" },
     ],
   },
   {
