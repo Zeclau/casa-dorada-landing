@@ -18,12 +18,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import hero from "@/assets/hero-exterior.webp";
-import g1 from "@/assets/gallery-1.webp";
-import g2 from "@/assets/gallery-2.webp";
-import g3 from "@/assets/gallery-3.webp";
-import g4 from "@/assets/gallery-4.webp";
-import g5 from "@/assets/gallery-5.webp";
-import g6 from "@/assets/gallery-6.webp";
+import ext9 from "@/assets/ext-9.webp";
+import ext10 from "@/assets/ext-10.webp";
+import ext12 from "@/assets/ext-12.webp";
+import cocina14 from "@/assets/cocina-14.webp";
+import cocina15 from "@/assets/cocina-15.webp";
+import sala16 from "@/assets/sala-16.webp";
+import hab17 from "@/assets/hab-17.webp";
+import hab18 from "@/assets/hab-18.webp";
+import amen20 from "@/assets/amen-20.webp";
+import amen22 from "@/assets/amen-22.webp";
 
 const WHATSAPP_URL =
   "https://wa.me/50500000000?text=" +
@@ -53,34 +57,40 @@ const galleryCategories = [
     id: "exterior",
     label: "Exterior",
     images: [
-      { src: g3, alt: "Fachada principal de la mansión" },
-      { src: g1, alt: "Entrada lateral con palmera" },
-      { src: g2, alt: "Vista exterior y jardín" },
-      { src: g6, alt: "Terraza superior y vista panorámica" },
+      { src: ext9, alt: "Piscina y fachada posterior" },
+      { src: ext10, alt: "Entrada principal y parqueo" },
+      { src: ext12, alt: "Pasillo lateral con palmera" },
+    ],
+  },
+  {
+    id: "cocina",
+    label: "Cocina",
+    images: [
+      { src: cocina14, alt: "Cocina con isla y barra" },
+      { src: cocina15, alt: "Cocina moderna con electrodomésticos" },
     ],
   },
   {
     id: "sala",
     label: "Sala",
     images: [
-      { src: g5, alt: "Sala de estar principal" },
-      { src: g2, alt: "Área social y comedor" },
+      { src: sala16, alt: "Sala de estar principal" },
     ],
   },
   {
     id: "habitaciones",
     label: "Habitaciones",
     images: [
-      { src: g4, alt: "Habitación principal" },
-      { src: g5, alt: "Suite con vista" },
+      { src: hab17, alt: "Habitación con sala de estar" },
+      { src: hab18, alt: "Habitación principal con piso de madera" },
     ],
   },
   {
     id: "amenidades",
     label: "Amenidades",
     images: [
-      { src: g6, alt: "Terraza con pérgola" },
-      { src: g1, alt: "Jardín y áreas verdes" },
+      { src: amen20, alt: "Sala con escaleras de mármol" },
+      { src: amen22, alt: "Pasillo y escalera de madera" },
     ],
   },
 ];
