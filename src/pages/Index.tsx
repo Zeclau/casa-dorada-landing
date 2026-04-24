@@ -231,58 +231,54 @@ const Index = () => {
             <Camera className="hidden h-6 w-6 text-gold sm:block" strokeWidth={1.25} />
           </div>
 
-          <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            <div className="col-span-2 row-span-2 sm:col-span-2 sm:row-span-2">
-              <img
-                src={visible[0].src}
-                alt={visible[0].alt}
-                className="h-full w-full object-cover aspect-square"
-              />
-            </div>
-            <div className="col-span-2 sm:col-span-2">
-              <img
-                src={visible[1].src}
-                alt={visible[1].alt}
-                className="h-full w-full object-cover aspect-[2/1]"
-              />
-            </div>
-            <div>
-              <img
-                src={visible[2].src}
-                alt={visible[2].alt}
-                className="h-full w-full object-cover aspect-square"
-              />
-            </div>
-            <div>
-              <img
-                src={visible[3].src}
-                alt={visible[3].alt}
-                className="h-full w-full object-cover aspect-square"
-              />
-            </div>
-            <div className="col-span-2">
-              <img
-                src={visible[4].src}
-                alt={visible[4].alt}
-                className="h-full w-full object-cover aspect-[2/1]"
-              />
-            </div>
-            <div className="col-span-2 sm:col-span-4">
-              <img
-                src={visible[5].src}
-                alt={visible[5].alt}
-                className="h-full w-full object-cover aspect-[16/9]"
-              />
-            </div>
-          </div>
+          <Tabs
+            value={activeCategory}
+            onValueChange={setActiveCategory}
+            className="mt-12"
+          >
+            <TabsList className="flex h-auto w-full flex-wrap justify-start gap-2 bg-transparent p-0 sm:gap-3">
+              {galleryCategories.map((cat) => (
+                <TabsTrigger
+                  key={cat.id}
+                  value={cat.id}
+                  className="rounded-none border border-border/40 bg-transparent px-5 py-2.5 text-[10px] uppercase tracking-[0.25em] text-muted-foreground data-[state=active]:border-gold data-[state=active]:bg-gold data-[state=active]:text-primary-foreground data-[state=active]:shadow-none"
+                >
+                  {cat.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+
+            {galleryCategories.map((cat) => (
+              <TabsContent key={cat.id} value={cat.id} className="mt-10">
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+                  {cat.images.map((img, i) => (
+                    <div
+                      key={i}
+                      className={
+                        i === 0 && cat.images.length > 2
+                          ? "col-span-2 sm:col-span-2 sm:row-span-2"
+                          : ""
+                      }
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        loading="lazy"
+                        className="h-full w-full object-cover aspect-square"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
 
           <div className="mt-12 flex justify-center">
             <Button
               variant="outline"
-              onClick={() => setShowAll((v) => !v)}
               className="border-gold/50 bg-transparent px-8 py-6 text-xs uppercase tracking-[0.25em] text-gold hover:bg-gold hover:text-primary-foreground"
             >
-              {showAll ? "Ver menos" : "Ver las 28 fotos"}
+              Ver las 28 fotos
             </Button>
           </div>
         </div>
