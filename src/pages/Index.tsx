@@ -16,6 +16,7 @@ import {
   Camera,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import hero from "@/assets/hero-exterior.webp";
 import g1 from "@/assets/gallery-1.webp";
 import g2 from "@/assets/gallery-2.webp";
