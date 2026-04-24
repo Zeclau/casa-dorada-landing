@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import hero from "@/assets/hero-exterior.webp";
 import ext9 from "@/assets/ext-9.webp";
 import ext10 from "@/assets/ext-10.webp";
@@ -105,6 +106,7 @@ const galleryCategories = [
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState("exterior");
+  useScrollReveal();
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -113,12 +115,12 @@ const Index = () => {
         <img
           src={hero}
           alt="Mansión de lujo en Reparto Santa Anita, Carretera Sur"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover animate-ken-burns"
         />
         <div className="hero-overlay absolute inset-0" />
 
         {/* Top badge */}
-        <div className="relative z-10 flex items-center justify-between px-6 pt-8 sm:px-10 sm:pt-10">
+        <div className="relative z-10 flex items-center justify-between px-6 pt-8 sm:px-10 sm:pt-10 animate-fade-in">
           <span className="text-[10px] uppercase tracking-[0.3em] text-gold">
             Sacuanjoche · Luxury
           </span>
@@ -129,24 +131,39 @@ const Index = () => {
 
         {/* Hero content */}
         <div className="relative z-10 flex h-[calc(100%-64px)] flex-col justify-end px-6 pb-16 sm:px-10 sm:pb-20">
-          <div className="flex items-center gap-2 text-foreground/80">
+          <div
+            className="flex items-center gap-2 text-foreground/80 animate-fade-in-left"
+            style={{ animationDelay: "0.2s" }}
+          >
             <MapPin className="h-4 w-4 text-gold" />
             <span className="text-xs uppercase tracking-[0.25em]">
               Carretera Sur · Managua
             </span>
           </div>
 
-          <h1 className="mt-5 max-w-3xl text-4xl font-light leading-[1.05] sm:text-6xl md:text-7xl">
+          <h1
+            className="mt-5 max-w-3xl text-4xl font-light leading-[1.05] sm:text-6xl md:text-7xl animate-fade-in-up"
+            style={{ animationDelay: "0.35s" }}
+          >
             Reparto
             <span className="block font-normal">Santa Anita</span>
           </h1>
 
-          <div className="mt-8 hairline w-24" />
+          <div
+            className="mt-8 hairline w-24 origin-left animate-hairline-grow"
+            style={{ animationDelay: "0.7s" }}
+          />
 
-          <p className="mt-8 text-[10px] uppercase tracking-[0.35em] text-foreground/60">
+          <p
+            className="mt-8 text-[10px] uppercase tracking-[0.35em] text-foreground/60 animate-fade-in"
+            style={{ animationDelay: "0.85s" }}
+          >
             Precio de venta
           </p>
-          <p className="mt-2 text-5xl font-light tracking-tight text-gold sm:text-7xl md:text-8xl">
+          <p
+            className="mt-2 text-5xl font-light tracking-tight gold-shimmer sm:text-7xl md:text-8xl animate-fade-in-up"
+            style={{ animationDelay: "0.95s" }}
+          >
             $750,000
           </p>
 
@@ -154,7 +171,8 @@ const Index = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex w-full items-center justify-center gap-3 bg-gold px-8 py-5 text-sm font-medium uppercase tracking-[0.2em] text-primary-foreground transition-all hover:opacity-90 sm:w-auto sm:self-start shadow-gold"
+            className="btn-shine mt-10 inline-flex w-full items-center justify-center gap-3 bg-gold px-8 py-5 text-sm font-medium uppercase tracking-[0.2em] text-primary-foreground transition-all hover:opacity-90 sm:w-auto sm:self-start shadow-gold animate-fade-in-up"
+            style={{ animationDelay: "1.15s" }}
           >
             <MessageCircle className="h-4 w-4" />
             Agendar Visita VIP
@@ -165,12 +183,15 @@ const Index = () => {
       {/* STATS */}
       <section className="border-y border-border/40 bg-card">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-10 px-6 py-14 sm:grid-cols-4 sm:gap-y-0 sm:px-10 sm:py-16">
-          {stats.map((s) => (
+          {stats.map((s, i) => (
             <div
               key={s.label}
-              className="flex flex-col items-center text-center sm:border-l sm:border-border/40 sm:first:border-l-0"
+              className={`reveal reveal-delay-${i + 1} flex flex-col items-center text-center sm:border-l sm:border-border/40 sm:first:border-l-0 group`}
             >
-              <s.icon className="h-6 w-6 text-gold" strokeWidth={1.25} />
+              <s.icon
+                className="h-6 w-6 text-gold transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"
+                strokeWidth={1.25}
+              />
               <p className="mt-4 text-2xl font-light tracking-tight text-foreground sm:text-3xl">
                 {s.value}
               </p>
@@ -185,17 +206,17 @@ const Index = () => {
       {/* ABOUT */}
       <section className="px-6 py-24 sm:px-10 sm:py-32">
         <div className="mx-auto max-w-3xl">
-          <p className="text-[10px] uppercase tracking-[0.35em] text-gold">
+          <p className="reveal text-[10px] uppercase tracking-[0.35em] text-gold">
             La propiedad
           </p>
-          <h2 className="mt-6 text-4xl font-light leading-[1.1] sm:text-5xl md:text-6xl">
+          <h2 className="reveal reveal-delay-1 mt-6 text-4xl font-light leading-[1.1] sm:text-5xl md:text-6xl">
             Elegancia y
             <span className="block italic font-extralight text-gold">
               Exclusividad
             </span>
           </h2>
-          <div className="mt-10 hairline w-16" />
-          <p className="mt-10 text-base leading-[1.9] text-muted-foreground sm:text-lg">
+          <div className="reveal reveal-delay-2 mt-10 hairline w-16" />
+          <p className="reveal reveal-delay-3 mt-10 text-base leading-[1.9] text-muted-foreground sm:text-lg">
             Ubicada en el prestigioso reparto Santa Anita, esta extraordinaria
             residencia de lujo ofrece un estilo de vida exclusivo, rodeado del
             clima fresco y natural de Carretera Sur, donde la tranquilidad y la
@@ -209,23 +230,26 @@ const Index = () => {
       {/* AMENITIES */}
       <section className="bg-card px-6 py-24 sm:px-10 sm:py-32">
         <div className="mx-auto max-w-5xl">
-          <p className="text-[10px] uppercase tracking-[0.35em] text-gold">
+          <p className="reveal text-[10px] uppercase tracking-[0.35em] text-gold">
             Amenidades
           </p>
-          <h2 className="mt-6 max-w-2xl text-3xl font-light leading-tight sm:text-5xl">
+          <h2 className="reveal reveal-delay-1 mt-6 max-w-2xl text-3xl font-light leading-tight sm:text-5xl">
             Cada detalle, pensado para vivir mejor.
           </h2>
 
           <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-2 sm:grid-cols-2">
-            {amenities.map((a) => (
+            {amenities.map((a, i) => (
               <div
                 key={a.label}
-                className="flex items-center gap-5 border-b border-border/40 py-6"
+                className={`reveal reveal-delay-${(i % 5) + 1} group flex items-center gap-5 border-b border-border/40 py-6 transition-colors hover:border-gold/60`}
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-gold/40">
-                  <a.icon className="h-5 w-5 text-gold" strokeWidth={1.25} />
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-gold/40 transition-all duration-500 group-hover:border-gold group-hover:bg-gold/10 group-hover:rotate-[8deg]">
+                  <a.icon
+                    className="h-5 w-5 text-gold transition-transform duration-500 group-hover:scale-110"
+                    strokeWidth={1.25}
+                  />
                 </span>
-                <span className="text-base text-foreground sm:text-lg">
+                <span className="text-base text-foreground transition-colors group-hover:text-gold sm:text-lg">
                   {a.label}
                 </span>
               </div>
@@ -239,14 +263,17 @@ const Index = () => {
         <div className="mx-auto max-w-6xl">
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.35em] text-gold">
+              <p className="reveal text-[10px] uppercase tracking-[0.35em] text-gold">
                 Galería
               </p>
-              <h2 className="mt-6 text-3xl font-light sm:text-5xl">
+              <h2 className="reveal reveal-delay-1 mt-6 text-3xl font-light sm:text-5xl">
                 Una mirada al interior.
               </h2>
             </div>
-            <Camera className="hidden h-6 w-6 text-gold sm:block" strokeWidth={1.25} />
+            <Camera
+              className="reveal reveal-delay-2 hidden h-6 w-6 text-gold sm:block animate-float"
+              strokeWidth={1.25}
+            />
           </div>
 
           <Tabs
@@ -254,12 +281,12 @@ const Index = () => {
             onValueChange={setActiveCategory}
             className="mt-12"
           >
-            <TabsList className="flex h-auto w-full flex-wrap justify-start gap-2 bg-transparent p-0 sm:gap-3">
+            <TabsList className="reveal reveal-delay-2 flex h-auto w-full flex-wrap justify-start gap-2 bg-transparent p-0 sm:gap-3">
               {galleryCategories.map((cat) => (
                 <TabsTrigger
                   key={cat.id}
                   value={cat.id}
-                  className="rounded-none border border-border/40 bg-transparent px-5 py-2.5 text-[10px] uppercase tracking-[0.25em] text-muted-foreground data-[state=active]:border-gold data-[state=active]:bg-gold data-[state=active]:text-primary-foreground data-[state=active]:shadow-none"
+                  className="rounded-none border border-border/40 bg-transparent px-5 py-2.5 text-[10px] uppercase tracking-[0.25em] text-muted-foreground transition-all duration-300 hover:border-gold/60 hover:text-gold data-[state=active]:border-gold data-[state=active]:bg-gold data-[state=active]:text-primary-foreground data-[state=active]:shadow-none"
                 >
                   {cat.label}
                 </TabsTrigger>
@@ -267,16 +294,21 @@ const Index = () => {
             </TabsList>
 
             {galleryCategories.map((cat) => (
-              <TabsContent key={cat.id} value={cat.id} className="mt-10">
+              <TabsContent
+                key={cat.id}
+                value={cat.id}
+                className="mt-10 data-[state=active]:animate-fade-in"
+              >
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
                   {cat.images.map((img, i) => (
                     <div
                       key={i}
-                      className={
+                      className={`img-zoom group relative ${
                         i === 0 && cat.images.length > 2
                           ? "col-span-2 sm:col-span-2 sm:row-span-2"
                           : ""
-                      }
+                      }`}
+                      style={{ animation: `image-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) ${i * 0.1}s both` }}
                     >
                       <img
                         src={img.src}
@@ -284,6 +316,7 @@ const Index = () => {
                         loading="lazy"
                         className="h-full w-full object-cover aspect-square"
                       />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                     </div>
                   ))}
                 </div>
@@ -291,10 +324,10 @@ const Index = () => {
             ))}
           </Tabs>
 
-          <div className="mt-12 flex justify-center">
+          <div className="reveal mt-12 flex justify-center">
             <Button
               variant="outline"
-              className="border-gold/50 bg-transparent px-8 py-6 text-xs uppercase tracking-[0.25em] text-gold hover:bg-gold hover:text-primary-foreground"
+              className="btn-shine border-gold/50 bg-transparent px-8 py-6 text-xs uppercase tracking-[0.25em] text-gold transition-all duration-500 hover:bg-gold hover:text-primary-foreground hover:shadow-gold"
             >
               Ver las 28 fotos
             </Button>
@@ -305,10 +338,10 @@ const Index = () => {
       {/* CTA FINAL */}
       <section className="border-t border-border/40 bg-card px-6 py-24 sm:px-10">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[10px] uppercase tracking-[0.35em] text-gold">
+          <p className="reveal text-[10px] uppercase tracking-[0.35em] text-gold">
             Propiedad por cita
           </p>
-          <h2 className="mt-6 text-3xl font-light leading-tight sm:text-5xl">
+          <h2 className="reveal reveal-delay-1 mt-6 text-3xl font-light leading-tight sm:text-5xl">
             Una visita privada vale más
             <span className="block italic text-gold">que mil fotografías.</span>
           </h2>
@@ -316,7 +349,7 @@ const Index = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center justify-center gap-3 bg-gold px-10 py-5 text-sm font-medium uppercase tracking-[0.2em] text-primary-foreground shadow-gold transition-all hover:opacity-90"
+            className="reveal reveal-delay-2 btn-shine mt-10 inline-flex items-center justify-center gap-3 bg-gold px-10 py-5 text-sm font-medium uppercase tracking-[0.2em] text-primary-foreground shadow-gold transition-all duration-500 hover:opacity-90 hover:scale-[1.03]"
           >
             <MessageCircle className="h-4 w-4" />
             Agendar Visita VIP
@@ -344,7 +377,7 @@ const Index = () => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-primary-foreground shadow-gold transition-transform hover:scale-105 sm:h-16 sm:w-16"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-primary-foreground shadow-gold transition-transform duration-300 hover:scale-110 animate-pulse-gold sm:h-16 sm:w-16"
       >
         <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
       </a>
