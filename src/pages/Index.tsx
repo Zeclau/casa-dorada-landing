@@ -48,18 +48,45 @@ const amenities = [
   { icon: Snowflake, label: "Aire acondicionado en todos los ambientes" },
 ];
 
-const gallery = [
-  { src: g1, alt: "Entrada lateral con palmera" },
-  { src: g2, alt: "Vista exterior y jardín" },
-  { src: g3, alt: "Fachada principal" },
-  { src: g4, alt: "Habitación principal" },
-  { src: g5, alt: "Sala de estar" },
-  { src: g6, alt: "Terraza superior" },
+const galleryCategories = [
+  {
+    id: "exterior",
+    label: "Exterior",
+    images: [
+      { src: g3, alt: "Fachada principal de la mansión" },
+      { src: g1, alt: "Entrada lateral con palmera" },
+      { src: g2, alt: "Vista exterior y jardín" },
+      { src: g6, alt: "Terraza superior y vista panorámica" },
+    ],
+  },
+  {
+    id: "sala",
+    label: "Sala",
+    images: [
+      { src: g5, alt: "Sala de estar principal" },
+      { src: g2, alt: "Área social y comedor" },
+    ],
+  },
+  {
+    id: "habitaciones",
+    label: "Habitaciones",
+    images: [
+      { src: g4, alt: "Habitación principal" },
+      { src: g5, alt: "Suite con vista" },
+    ],
+  },
+  {
+    id: "amenidades",
+    label: "Amenidades",
+    images: [
+      { src: g6, alt: "Terraza con pérgola" },
+      { src: g1, alt: "Jardín y áreas verdes" },
+    ],
+  },
 ];
 
 const Index = () => {
-  const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? gallery : gallery.slice(0, 6);
+  const [activeCategory, setActiveCategory] = useState("exterior");
 
   return (
     <main className="min-h-screen bg-background text-foreground">
