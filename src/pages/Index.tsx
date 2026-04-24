@@ -358,8 +358,8 @@ const Index = () => {
           </div>
 
           <div className="reveal reveal-delay-4 mt-6 flex flex-col items-center justify-between gap-3 text-[11px] uppercase tracking-[0.25em] text-muted-foreground sm:flex-row">
-            <span>Coordenadas aproximadas: 12.0945° N, -86.3297° W</span>
-            <span className="text-gold">Radio mostrado: 50 m</span>
+            <span>Zona residencial exclusiva · Acceso controlado</span>
+            <span className="text-gold">Dirección exacta reservada para visitas privadas</span>
           </div>
         </div>
       </section>
