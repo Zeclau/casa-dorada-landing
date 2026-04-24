@@ -30,6 +30,7 @@ import hab18 from "@/assets/hab-18.webp";
 import amen20 from "@/assets/amen-20.webp";
 import amen22 from "@/assets/amen-22.webp";
 import bano19 from "@/assets/bano-19.webp";
+import PropertyMap from "@/components/PropertyMap";
 
 const WHATSAPP_URL =
   "https://wa.me/50500000000?text=" +
