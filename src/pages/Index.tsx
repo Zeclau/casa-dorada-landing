@@ -336,6 +336,34 @@ const Index = () => {
         </div>
       </section>
 
+      {/* MAP / UBICACIÓN */}
+      <section className="px-6 py-20 sm:px-10 sm:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-12 text-center">
+            <p className="reveal text-[10px] uppercase tracking-[0.35em] text-gold">
+              Ubicación
+            </p>
+            <h2 className="reveal reveal-delay-1 mt-6 text-3xl font-light leading-tight sm:text-5xl">
+              Un enclave privado
+              <span className="block italic text-gold">a pasos de todo.</span>
+            </h2>
+            <p className="reveal reveal-delay-2 mx-auto mt-6 max-w-xl text-sm text-muted-foreground sm:text-base">
+              Por privacidad, mostramos un radio aproximado de 50 metros alrededor de la propiedad.
+              La dirección exacta se comparte con compradores calificados.
+            </p>
+          </div>
+
+          <div className="reveal reveal-delay-3 overflow-hidden border border-border shadow-elevated">
+            <PropertyMap />
+          </div>
+
+          <div className="reveal reveal-delay-4 mt-6 flex flex-col items-center justify-between gap-3 text-[11px] uppercase tracking-[0.25em] text-muted-foreground sm:flex-row">
+            <span>Coordenadas aproximadas: 12.0945° N, -86.3297° W</span>
+            <span className="text-gold">Radio mostrado: 50 m</span>
+          </div>
+        </div>
+      </section>
+
       {/* CTA FINAL */}
       <section className="border-t border-border/40 bg-card px-6 py-24 sm:px-10">
         <div className="mx-auto max-w-3xl text-center">
