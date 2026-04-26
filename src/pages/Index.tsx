@@ -348,8 +348,8 @@ const Index = () => {
               <span className="block italic text-gold">a pasos de todo.</span>
             </h2>
             <p className="reveal reveal-delay-2 mx-auto mt-6 max-w-xl text-sm text-muted-foreground sm:text-base">
-              Por privacidad, mostramos un radio aproximado de 50 metros alrededor de la propiedad.
-              La dirección exacta se comparte con compradores calificados.
+              Una ubicación estratégica que combina discreción, conectividad y cercanía a los
+              puntos más exclusivos de la ciudad.
             </p>
           </div>
 
@@ -358,8 +358,8 @@ const Index = () => {
           </div>
 
           <div className="reveal reveal-delay-4 mt-6 flex flex-col items-center justify-between gap-3 text-[11px] uppercase tracking-[0.25em] text-muted-foreground sm:flex-row">
-            <span>Coordenadas aproximadas: 12.0945° N, -86.3297° W</span>
-            <span className="text-gold">Radio mostrado: 50 m</span>
+            <span>Entorno residencial de alta conveniencia</span>
+            <span className="text-gold">Dirección disponible bajo solicitud</span>
           </div>
         </div>
       </section>
